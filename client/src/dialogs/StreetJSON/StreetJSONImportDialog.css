@@ -1,0 +1,48 @@
+.import-dialog {
+  width: 500px;
+
+  @media only screen and (width > 768px) {
+    max-height: 75vh !important;
+  }
+
+  /* Override .dialog-box header */
+  header {
+    background-color: white;
+    padding: 0;
+    text-align: start;
+    position: sticky;
+    top: 0;
+
+    h1 {
+      margin: 20px;
+    }
+  }
+
+  .dialog-content {
+    overflow-x: hidden;
+
+    button {
+      border-top: none;
+    }
+  }
+}
+
+.import-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  flex: 1;
+  padding: 1em 2em 3em;
+}
+
+.import-dialog-error {
+  color: #c12230;
+  margin: 0 0 1rem;
+}
+
+@media only screen and (width < 640px) {
+  .import-dialog-content {
+    display: block;
+    overflow-y: scroll;
+  }
+}

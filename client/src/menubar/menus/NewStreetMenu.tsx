@@ -1,7 +1,7 @@
 import { FormattedMessage } from 'react-intl'
 import { useShepherd } from 'react-shepherd'
 
-import { useSelector } from '~/src/store/hooks.js'
+import { useDispatch, useSelector } from '~/src/store/hooks.js'
 import { URL_NEW_STREET, STREET_TEMPLATES } from '~/src/app/constants.js'
 import { BetaTag } from '~/src/ui/BetaTag.js'
 import { Icon } from '~/src/ui/Icon.js'
@@ -9,6 +9,7 @@ import Menu, { type MenuProps } from './Menu.js'
 import { MenuItem } from './MenuItem.js'
 import { MenuSeparator } from './MenuSeparator.js'
 import { SignInPromo } from './ShareMenu/SignInPromo.js'
+import { showDialog } from '~src/store/slices/dialogs.js'
 
 function openTemplate(template: string, tour: boolean = false): void {
   const url =
@@ -24,6 +25,7 @@ export function NewStreetMenu(props: MenuProps) {
     (state) => state.flags.COASTMIX_MODE.value ?? false
   )
   const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
   const Shepherd = useShepherd()
 
   return (
@@ -78,6 +80,18 @@ export function NewStreetMenu(props: MenuProps) {
         />
         <BetaTag />
       </MenuItem> */}
+      <MenuSeparator />
+      <MenuItem
+        onClick={() => {
+          dispatch(showDialog('IMPORT_STREETJSON'))
+        }}
+      >
+        <Icon name="code-asterisk" className="menu-item-icon" />
+        <FormattedMessage
+          id="menu.new-street.streetjson"
+          defaultMessage="Import from StreetJSON"
+        />
+      </MenuItem>
       {/* Temporarily disable this in Coastmix mode */}
       {templatesEnabled && !coastmixEnabled && (
         <>
