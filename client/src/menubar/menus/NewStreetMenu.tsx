@@ -69,8 +69,16 @@ export function NewStreetMenu(props: MenuProps) {
         />
         <Icon name="external-link" />
       </MenuItem>
-      {/* <MenuSeparator />
-      <MenuItem>
+      <MenuSeparator />
+      <MenuItem
+        onClick={() => {
+          openTemplate(STREET_TEMPLATES.COPY)
+        }}
+      >
+        <Icon name="code-asterisk" className="menu-item-icon" />
+        <span>Import from StreetJSON</span>
+      </MenuItem>
+      {/* <MenuItem>
         <Icon name="template" className="menu-item-icon" />
         <FormattedMessage
           id="menu.new-street.template"

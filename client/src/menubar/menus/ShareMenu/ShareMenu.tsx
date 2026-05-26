@@ -15,6 +15,7 @@ import { SaveImage } from './SaveImage.js'
 import { SignInPromo } from './SignInPromo.js'
 import { getSharingUrl, getSharingMessage } from './helpers.js'
 import './ShareMenu.css'
+import { ExportStreetJSON } from './ExportStreetJSON.js'
 
 export function ShareMenu(props: MenuProps) {
   const offline = useSelector((state) => state.system.offline)
@@ -47,6 +48,7 @@ export function ShareMenu(props: MenuProps) {
           <PostOnFacebook shareText={shareText} shareUrl={shareUrl} />
           <MenuSeparator />
           <Export3DStreet />
+          <ExportStreetJSON />
           <ExportStreetmeter />
           <MenuSeparator />
         </>

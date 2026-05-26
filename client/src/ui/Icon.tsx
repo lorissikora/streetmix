@@ -46,6 +46,7 @@ import {
   IconUmbrella,
   IconUser,
   IconX,
+  IconCodeAsterisk,
 } from '@tabler/icons-react'
 import {
   FaArrowLeft,
@@ -84,6 +85,7 @@ const ICONS = {
   clipboard: [IconClipboard, 'tabler'],
   close: [IconX, 'tabler'],
   copy: [IconCopy, 'tabler'],
+  'code-asterisk': [IconCodeAsterisk, 'tabler'],
   cube: [IconCubeSpark, 'tabler'],
   download: [IconDownload, 'tabler'],
   edit: [IconEdit, 'tabler'],
